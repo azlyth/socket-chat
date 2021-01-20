@@ -1,41 +1,42 @@
 version: '3'
 
-nginx:
-  labels:
-    shipyard.route: '/'
-  build: ./nginx
-  ports:
-   - "3000:80"
+services:
+  nginx:
+    labels:
+      shipyard.route: '/'
+    build: ./nginx
+    ports:
+     - "3000:80"
 
-server-john:
-  build: ./server
-  environment:
-    - NAME=John
-  ports:
-   - "3000"
+  server-john:
+    build: ./server
+    environment:
+      - NAME=John
+    ports:
+     - "3000"
 
-server-paul:
-  build: ./server
-  environment:
-    - NAME=Paul
-  ports:
-   - "3000"
+  server-paul:
+    build: ./server
+    environment:
+      - NAME=Paul
+    ports:
+     - "3000"
 
-server-george:
-  build: ./server
-  environment:
-    - NAME=George
-  ports:
-   - "3000"
+  server-george:
+    build: ./server
+    environment:
+      - NAME=George
+    ports:
+     - "3000"
 
-server-ringo:
-  build: ./server
-  environment:
-    - NAME=Ringo
-  ports:
-   - "3000"
+  server-ringo:
+    build: ./server
+    environment:
+      - NAME=Ringo
+    ports:
+     - "3000"
 
-redis:
-  image: redis:alpine
-  ports:
-   - "6379"
+  redis:
+    image: redis:alpine
+    ports:
+     - "6379"
